@@ -1,24 +1,75 @@
-import logo from './logo.svg';
+import Register from './pages/Register';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  
+} from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import Login from './pages/Login';
+import { Navigate } from 'react-router-dom';
+import Dashboard from './pages/dashboard';
+import AdminDashboard from './pages/admin/Admindashboard';
+import FeaturedDashboard from './pages/admin/Featureddashboard';
+import EventDashboard from './pages/admin/Eventdashboard';
+import Events from './pages/event';
+import ScholarDashboard from './pages/admin/Scholardashboard';
+import Scholarship from './pages/scholarship';
+import Detail from './pages/detail';
+import Rateandreview from './pages/rateandreview';
+import EditProfile from './pages/EditProfile';
+import BasicInfo from './pages/Basicinfo';
+import Addmission from './pages/addmission';
+import AdminRoutes from './protected/AdminRoutes';
+import UserRoutes from './protected/UserRoutes';
+import Navbar from './components/Navbar/Navbar';
+import AdminLayout from './components/Layout/AdminLayout';
+import FeatureDetail from './pages/featuredetail';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    
+      <ToastContainer/>
+      <Routes>
+      <Route path="/" element={<Dashboard></Dashboard>} />
+      <Route path='/register' element={<Register></Register>}/>
+      <Route path='/login' element={<Login></Login>}/>
+      <Route path='/basicinfo' element={<BasicInfo></BasicInfo>}/>
+
+      <Route element={<AdminRoutes />}>
+      
+            <Route path='/adminsch' element={<AdminDashboard />} />
+            <Route path='/adminfea' element={<FeaturedDashboard />} />
+            <Route path='/adminevent' element={<EventDashboard />} />
+            <Route path='/adminscholar' element={<ScholarDashboard />} />
+         
+        </Route>
+     <Route element={<UserRoutes/>}>
+     
+        
+        {/* <Route path='/register' element={<Register></Register>}/> */}
+        {/* <Route path='/login' element={<Login></Login>}/> */}
+        <Route path='/dash' element={<Dashboard></Dashboard>}/>
+        {/* <Route path='/adminsch' element={<AdminDashboard></AdminDashboard>}/> */}
+        {/* <Route path='/adminfea' element={<FeaturedDashboard></FeaturedDashboard>}/>
+        <Route path='/adminevent' element={<EventDashboard></EventDashboard>}/>
+        <Route path='/adminscholar' element={<ScholarDashboard></ScholarDashboard>}/> */}
+        <Route path='/event' element={<Events></Events>}/>
+        <Route path='/scholarship' element={<Scholarship></Scholarship>}/>
+        <Route path='/detail' element={<Detail></Detail>}/>
+        <Route path='/featuredetail' element={<FeatureDetail></FeatureDetail>}/>
+        <Route path='/rateandreview' element={<Rateandreview></Rateandreview>}/>
+        <Route path='/editprofile' element={<EditProfile></EditProfile>}/>
+        
+        <Route path='/addmission' element={<Addmission></Addmission>}/>
+        </Route>
+      </Routes>                                   
+    </Router>
+
+
   );
 }
 

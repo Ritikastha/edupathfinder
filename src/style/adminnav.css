@@ -1,0 +1,11 @@
+.btn-nav{
+    height: 42px;  
+  width: 130px;
+  font-size: 20px;
+  background-color: #F1C31D;
+  border-color: #f7c63f;
+  margin-right: 10px;
+  text-align: center;
+  color: white;
+  border-radius: 30px;
+}

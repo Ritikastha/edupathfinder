@@ -1,0 +1,172 @@
+
+.hero-header {
+    background:url(../components/Assets/home.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+.hero-header-2{
+    background:url(../components/Assets/home-descrip.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+}
+.hero-header-2 h2{
+    margin-left: 18%;
+}
+.hero-header-2 h1{
+    font-size: 200%;
+    margin-left: 5%;
+}
+
+.hero-header-2 p {
+  font-size: 1.5rem; /* Adjust font size */
+  text-align: center; /* Center align paragraphs */
+  line-height: 1.8; /* Adjust line height for readability */
+  max-width: 600px; /* Limit width to prevent stretching */
+  margin-left: 70px; /* Center align paragraphs */
+}
+.containerr {
+    text-align: right; /* Align text to the right */
+}
+.hero-header h2{
+    margin-right: 10%;
+}
+/* .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, .5);
+} */
+.scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.scroll-content {
+  display: inline-flex;
+  gap: 30px; /* Adjust spacing between items */
+}
+.scroll-item {
+  display: inline-block;
+  vertical-align: top;
+  width: 300px; /* Fixed width for each scroll item */
+}
+.container h4{
+  color: #F1C31D;
+}
+
+.box-container {
+  width: 100%;
+  height: 380px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.box-container .col {
+  width: 300px; /* Match the width of scroll item */
+  height: 380px; /* Set a fixed height */
+  /* display: flex;
+  flex-direction: column; */
+  /* margin-top: 10%; */
+}
+
+.box-container .overflow-hidden {
+  flex: 1;
+}
+
+.box-container img {
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 190px; /* Fixed height for images */
+  object-fit: cover; /* Ensure images fit within the container */
+  border-radius: 20px;
+}
+
+.box-container .d-flex {
+  flex: 0;
+  
+}
+  
+  /* justify-content: space-between; */
+
+.box-container .text-center h5 {
+  
+  margin-bottom: 10px;
+  overflow-wrap: break-word; /* Ensure long words break */
+  width: 100%; /* Ensure it respects the container's width */
+}
+
+.box-container .text-center .mb-3 {
+  margin-bottom: 0; /* Reduced margin-bottom */
+}
+
+/* .box-container .text-center .d-flex {
+  margin-top: auto;
+
+} */
+
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+/* 
+  .box-container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    padding: 1px;
+    margin: 10px; /* Add margin to create space between boxes */
+    /* box-sizing: border-box;
+    width: 100%;
+  } */
+
+ 
+ .scroll-container {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+     scrollbar-width: none; /* Firefox */
+}
+
+
+.grey-background {
+    background-color: #F3F3F3; /* Light grey background */
+    padding: 20px 0; /* Optional: Adjust the padding as needed */
+  }
+  
+  .text-left {
+    text-align: 100px;
+  }
+
+  .d-flex {
+    display: flex;
+    
+  }
+  
+  .justify-content-between {
+    justify-content: space-between;
+    gap:0 50px;
+  }
+  
+  .align-items-center {
+    align-items: center;
+  }
+  
+  .mb-3 {
+    margin-bottom: 1rem;
+  }
+  
+  .mb-0 {
+    margin-bottom: 0;
+  }
+  .btn-detail{
+  height: 38px;  
+  width: 90px;
+  font-size: 18px;
+  background-color: #F1C31D;
+  border-color: #f7c63f;
+  color: white;
+  margin-left: 25px;
+  text-align: center;
+  border-radius: 30px;
+  padding-top: 5px;
+  }

@@ -1,0 +1,152 @@
+.hero-header-edit {
+    background-size: contain;
+    height: auto;
+    min-height: 700px;
+    width: 100%;
+}
+
+.edit-profile-picture img.img-fluid{
+    height: 700px;
+}
+    
+ .form{
+    padding-right: 100px;
+    padding-top: 60px;
+ }
+
+ .form-row{
+    margin-bottom: 20px;
+ }
+
+.edit-profile-form h2 {
+    color: #173DB5;
+    margin-top: 50px;
+    margin-left: 260px;
+}
+
+.edit-profile-form .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-profile-form label {
+    font-weight: bold;
+    /* font-style: inter; */
+    color: black;
+}
+
+.edit-profile-form textarea,
+.edit-profile-form input[type="text"],
+.edit-profile-form input[type="number"],
+.edit-profile-form input[type="tel"]
+ {
+    border-color: #F1C31D;
+    border-radius: 20px;
+    width: 100%; /* Adjusting width to fit two fields side by side */
+    height: 85%;
+    background-color: #EDEDED;
+}
+.edit-profile-form input[type="file"]  {
+    border-color: #F1C31D;
+    border-radius: 20px;
+    width: 100%; /* Adjusting width to fit two fields side by side */
+    /* height: 100%; */
+    margin-inline-end: 80%;
+    background-color: #EDEDED;
+}
+.edit-profile-form .form-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.edit-profile-form .form-group {
+    flex: 0 0 48%; /* Adjusting flex-basis to fit two fields side by side */
+}
+
+
+.edit-profile-form textarea {
+    resize: none;
+}
+
+/* .edit-profile-form input[type="option"]{
+    border-radius: 20px;
+    border-color: #F1C31D;
+} */
+.edit-profile-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #EDEDED;
+    padding: 0.5rem;
+    border-color:  #F1C31D;
+    border-radius: 20px;
+    height:75%;
+    bottom: unset;
+}
+.custom-form-check {
+    margin-top: 10px; /* Adjust as necessary */
+}
+.custom-form-check .form-check-input {
+    margin-left: 5px; /* Adjust as necessary to add space between radio button and label */
+}
+.custom-form-check .form-check-label {
+    margin-left: 5px; /* Adjust as necessary to add space between radio button and label */
+}
+/* Hide the default radio button */
+.form-check-input[type="radio"] {
+    display: none;
+}
+
+    
+
+
+/* Create a custom radio button */
+.form-check-input[type="radio"] + .form-check-label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #F1C31D; /* Yellow border */
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Checked state styles */
+.form-check-input[type="radio"]:checked + .form-check-label:before {
+    background-color: #F1C31D; /* Yellow background when checked */
+    border: 2px solid #F1C31D; /* Yellow border */
+}
+/* Input Icon Wrapper */
+.input-icon-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    color: #999; /* Adjust icon color as needed */
+}
+.btn-save{
+    height: 50px;  
+    width: 110px;
+    font-size: 20px;
+    background-color: #F1C31D;
+    border-color: #f7c63f;
+    color: white;
+    margin-left: 350px;
+    text-align: center;
+    border-radius: 30px;
+    margin-top: 18px;
+}
+.error-message-addmission{
+    font-size: smaller;
+    color: red;
+    position: absolute;
+    margin-top: 3px;
+    padding-left: 20px;
+}
