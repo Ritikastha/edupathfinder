@@ -58,7 +58,7 @@
 
 .box-container {
   width: 100%;
-  height: 380px;
+  height: 360px;
   border-radius: 20px;
   background-color: white;
 }
@@ -116,18 +116,39 @@
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
     padding: 1px;
-    margin: 10px; /* Add margin to create space between boxes */
+    margin: 10px; 
     /* box-sizing: border-box;
     width: 100%;
   } */
 
- 
- .scroll-container {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-     scrollbar-width: none; /* Firefox */
+ /* ---- */
+ /* .scroll-wrapper {
+  position: relative;
 }
-
-
+.scroll-container {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.scroll-content {
+  display: flex;
+}
+.scroll-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.scroll-indicator {
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #c5bfab;
+  
+} */
+/* --- */
 .grey-background {
     background-color: #F3F3F3; /* Light grey background */
     padding: 20px 0; /* Optional: Adjust the padding as needed */
@@ -170,3 +191,5 @@
   border-radius: 30px;
   padding-top: 5px;
   }
+
+  

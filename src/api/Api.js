@@ -39,7 +39,15 @@ export const deletedScholarApi = (id) => Api.delete(`/api/scholar/delete_scholar
 export const createReviewApi = (data) => Api.post('/api/review/create_review', data, config);
 export const getAllReviewApi = () => Api.get('/api/review/:schoolId');
 
-export const createBasicinfoApi = (data) => Api.post('/api/basicinfo/create_basicinfo', data, config);
+export const createBasicinfoApi = (data,token) =>{
+    const config = {
+    headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data'
+    }
+}; 
+Api.post('/api/basicinfo/create_basicinfo', data, config);
+};
 export const getAllBasicinfoApi = () => Api.get('/api/basicinfo/get_basicinfo',config);
 export const updateBasicinfoApi=(id,formData) =>Api.put(`/api/basicinfo/update_basicinfo/${id}`,formData,config)
 export const getSingleBasicinfoApi=(id) => Api.get(`/api/basicinfo/get_basicinfo/${id}`,config)

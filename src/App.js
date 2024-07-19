@@ -24,8 +24,8 @@ import BasicInfo from './pages/Basicinfo';
 import Addmission from './pages/addmission';
 import AdminRoutes from './protected/AdminRoutes';
 import UserRoutes from './protected/UserRoutes';
-import Navbar from './components/Navbar/Navbar';
-import AdminLayout from './components/Layout/AdminLayout';
+// import Navbar from './components/Navbar/Navbar';
+// import AdminLayout from './components/Layout/AdminLayout';
 import FeatureDetail from './pages/featuredetail';
 
 function App() {

@@ -178,7 +178,7 @@ useEffect(() => {
                     onChange={changeSchool}
                     type="text"
                     className="form-control mb-2"
-                    placeholder="Enter Package Name"
+                    placeholder="Enter School Name "
                   ></input>
                   <br></br>
                   <label className="form-label">Scholarship</label>
@@ -186,7 +186,7 @@ useEffect(() => {
                     onChange={changeScholar}
                     type="Number"
                     className="form-control mb-2"
-                    placeholder="Enter Package Name"
+                    placeholder="Enter Scholarship"
                   ></input>
                   <br></br>
                  

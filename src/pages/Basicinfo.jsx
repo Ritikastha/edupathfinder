@@ -9,6 +9,7 @@ import { getAllBasicinfoApi } from '../api/Api'
 import { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import { useNavigate, useLocation, Link } from 'react-router-dom'
+import axios from 'axios';
 
 const BasicInfo = () => {
     const [phone, setPhone] = useState('')
@@ -87,36 +88,36 @@ const BasicInfo = () => {
   
       const handleSubmit = async (e) => {
         e.preventDefault();
-        const isValid=validate()
-        if(!isValid){
-          return 
+        const isValid = validate();
+        if (!isValid) {
+            return;
         }
-        console.log(phone, age, level, gender, address, currentschool);
     
-        const formData = {
-            phone,
-            age,
-            level,
-            gender,
-            address,
-            currentschool,
-            fullName
-        };
+        console.log(phone,age, level,gender,address,currentschool);
     
+        const formData = new FormData();
+    formData.append("phone", phone);
+    formData.append("age", age);
+    formData.append("level", level);
+    formData.append("gender", gender);
+    formData.append("address", address);
+    formData.append("currentschool", currentschool);
+ 
         try {
-            const res = await createBasicinfoApi(formData);
-            
-            if (res.data.success === false) {
-                toast.error(res.data.message);     
+            const token = localStorage.getItem('token');
+            const res = await createBasicinfoApi(formData,token);
+      
+            if (res.data.status && res.data.status.success === false) {
+              toast.error(res.data.message);
             } else {
-                toast.success(res.data.message);
-                navigate('/dash')
+              toast.success(res.data.message);
             }
-        } catch (error) {
+          } catch (error) {
             toast.error("Server error");
-            console.log(error);
-        }
-    };
+            console.log("Error response from server:", error.response);
+          }
+      
+        };
  
 useEffect(() => {
     getAllBasicinfoApi()
@@ -128,7 +129,7 @@ useEffect(() => {
         toast.error('Error fetching Basicinfo.Please try again later.');
       });
   }, []);
-
+         
     return (
         <div>
             <Navbar />

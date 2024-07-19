@@ -1,17 +1,50 @@
 import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import {  useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import "../../style/Navbar.css";
-import logo from '../Assets/logo.png'; // Replace with your actual logo path
+import logo from '../Assets/logo.png'; 
+import { getSingleBasicinfoApi } from '../../api/Api'
 
 const Navbar = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const navigate = useNavigate();
+    const [name, setName] = useState([]); 
+    const {id} = useParams()
 
     const handleLogout = (e) => {
         e.preventDefault();
         localStorage.clear();
-        navigate('/dash'); // Navigate to dash after logging out
+        navigate('/'); // Navigate to dash after logging out
     }
+
+    useEffect(() => {
+        console.log('Fetching basic info for ID:', id);
+        const fetchBasicInfo = async () => {
+            try {
+                const res = await getSingleBasicinfoApi(id);
+                console.log('API Response:', res);
+                if (res.data && res.data.Basicinfo) {
+                    const basicinfo = res.data.Basicinfo;
+                    setName(basicinfo.fullName);
+                    // setAge(basicinfo.age);
+                    // setPhone(basicinfo.phone);
+                    // setGender(basicinfo.gender);
+                    // setLevel(basicinfo.level);
+                    // setAddress(basicinfo.address);
+                    // setCurrentSchool(basicinfo.currentschool);
+                } else {
+                    toast.error('Basic info not found');
+                }
+            } catch (error) {
+                console.error('Error fetching basic info:', error);
+                toast.error('Error fetching basic info. Please try again later.');
+            }
+        };
+    
+        fetchBasicInfo();
+    }, [id]);
 
     return (
         <div className="container-fluid position-relative p-0">
@@ -52,7 +85,7 @@ const Navbar = () => {
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        Welcome, {user.fullName}!
+                                        Welcome, {name}!
                                     </button>
                                     <ul className="dropdown-menu">
                                         <li>
