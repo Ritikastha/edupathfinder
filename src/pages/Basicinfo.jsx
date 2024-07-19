@@ -37,12 +37,18 @@ const BasicInfo = () => {
         setCurrentSchoolError('');
         
           if (!phone || phone.trim() === '') {
-            setPhoneError('Phone is required');
+            setPhoneError('Phone no is required');
               isValid = false;
+          }else if (!/^\d+$/.test(phone)) {
+            setPhoneError('Phone no should contain only digits');
+            isValid = false;
           }
           if (!age || age.trim() === '') {
             setAgeError('Age is required');
               isValid = false;
+          }else if (!/^\d+$/.test(age)) {
+            setAgeError('age should contain only digits');
+            isValid = false;
           }
           if (!level || level.trim() === '') {
             setLevelError('Level is required');
@@ -59,7 +65,10 @@ const BasicInfo = () => {
           if (!currentschool || currentschool.trim() === '') {
             setCurrentSchoolError('current school is required');
               isValid = false;
-          }
+          }else if (/\d/.test(currentschool)) {
+            setCurrentSchoolError('Current school should not contain numbers');
+            isValid = false;
+        }
          return isValid;
        }
 

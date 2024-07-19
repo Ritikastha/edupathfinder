@@ -64,7 +64,7 @@ const Login =()=>{
          window.location.replace('/adminsch');
        } else {
         //  window.location.replace('/dash');
-        navigate('/basicinfo');
+        navigate('/dash');
        }
      }).catch(err =>{
       if (err.response && err.response.data && err.response.data.message) {

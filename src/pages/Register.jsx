@@ -31,11 +31,17 @@ const Register = () => {
      if(fullName.trim()===""){
       setFullNameError("Full Name is required")
       isValid=false
-    }
+    } else if (/^\d+$/.test(fullName)) { // Check if fullName contains only numbers
+      setFullNameError("Full Name cannot contain numbers");
+      isValid = false;
+  }
      if(email.trim()===""){
        setEmailError("Email is required")
        isValid=false
-     }
+     }else if (!/\S+@\S+\.\S+/.test(email)) { // Check if email is in valid format
+      setEmailError("Email is not valid");
+      isValid = false;
+  }
      if(password.trim()===""){
        setPasswordError("Password is required")
        isValid=false
@@ -90,7 +96,7 @@ const Register = () => {
           toast.error(res.data.message)
         } else {
           toast.success(res.data.message)
-          navigate('/login',{state : {message : "Ritika"}})
+          navigate('/basicinfo',{state : {message : "Ritika"}})
         }
       }).catch(err => {
         toast.error("Server Error")

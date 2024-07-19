@@ -43,13 +43,22 @@ const Addmission = () => {
         if (!fatherName || fatherName.trim() === '') {
             setFatherNameError('Father Name is required');
             isValid = false;
+        }else if (/\d/.test(fatherName)) {
+            setFatherNameError('Father Name should not contain numbers');
+            isValid = false;
         }
         if (!motherName || motherName.trim() === '') {
             setMotherNameError('Mother Name is required');
             isValid = false;
+        }else if (/\d/.test(motherName)) {
+            setMotherNameError('Mother Name should not contain numbers');
+            isValid = false;
         }
         if (!guardianPhone || guardianPhone.trim() === '') {
             setGuardianPhoneError('Guardian Phone is required');
+            isValid = false;
+        }else if (!/^\d+$/.test(guardianPhone)) {
+            setGuardianPhoneError('Guardian Phone should contain only digits');
             isValid = false;
         }
         if (!fatherOccupation || fatherOccupation.trim() === '') {
@@ -67,7 +76,10 @@ const Addmission = () => {
         if (!previousSchool || previousSchool.trim() === '') {
             setPreviousSchoolError('Previous School is required');
             isValid = false;
-        }
+        }else if (/\d/.test(previousSchool)) {
+            setPreviousSchoolError('Previous School should not contain numbers');
+            isValid = false;
+        } 
         if (!grade || grade.trim() === '') {
             setGradeError('Grade is required');
             isValid = false;
@@ -178,23 +190,58 @@ useEffect(() => {
                                     <div className="form-group col-md-6">
                                             <label htmlFor="phone">Father/Guardian's Name</label>
                                                 <input onChange={changeFatherName} type="text" className="form-control" id="phone" placeholder="Enter your graurian's name" />
+                                                
                                                 {fatherNameError && <p className='error-message-addmission'>{fatherNameError}</p> }
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label htmlFor="age">Mother/Guardian's Name</label>
                                                 <input onChange={changeMotherName}type="text" className="form-control" id="age" placeholder="Enter your graurian's name" />
+                                               
                                                 {motherNameError && <p className='error-message-addmission'>{motherNameError}</p> }
                                         </div>
                                     </div>
                                     <div className="form-row">
                                     <div className="form-group col-md-6">
                                             <label htmlFor="phone">Father's Occupcation</label>
-                                                <input onChange={changeFatherOccupation} type="text" className="form-control" id="phone" placeholder="Enter your Father's Occupation" />
+                                                {/* <input onChange={changeFatherOccupation} type="text" className="form-control" id="phone" placeholder="Enter your Father's Occupation" /> */}
+                                                <select
+                                                onChange={(e) => setFatherOccupation(e.target.value)}
+                                                className="form-control"
+                                                id="fatherOccupation"
+                                            >
+                                                <option value="">Select Occupation</option>
+                                                <option value="Engineer">Engineer</option>
+                                                <option value="Doctor">Doctor</option>
+                                                <option value="Teacher">Teacher</option>
+                                                <option value="Business">Business man</option>
+                                                <option value="Accountant">Accountant</option>
+                                                <option value="Government">Government officer</option>
+                                                <option value="Lawyer">Lawyer</option>
+                                                <option value="Service man">Service man</option>
+                                                <option value="Other">Other</option>
+                                            </select>
                                                 {guardianPhoneError && <p className='error-message-addmission'>{guardianPhoneError}</p> }
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label htmlFor="age">Mother's Occupation</label>
-                                                <input onChange={changeMotherOccupation}type="text" className="form-control" id="age" placeholder="Enter your Mother's Occupation" />
+                                                {/* <input onChange={changeMotherOccupation}type="text" className="form-control" id="age" placeholder="Enter your Mother's Occupation" /> */}
+                                                <select
+                                                onChange={(e) => setFatherOccupation(e.target.value)}
+                                                className="form-control"
+                                                id="motherOccupation"
+                                            >
+                                                <option value="">Select Occupation</option>
+                                                <option value="Engineer">Engineer</option>
+                                                <option value="Doctor">Doctor</option>
+                                                <option value="Teacher">Teacher</option>
+                                                <option value="Business">Business woman</option>
+                                                <option value="Accountant">Accountant</option>
+                                                <option value="Government">Government officer</option>
+                                                <option value="Lawyer">Lawyer</option>
+                                                <option value="Service woman">Service woman</option>
+                                                <option value="Housewife">Housewife</option>
+                                                <option value="Other">Other</option>
+                                            </select>
                                                 {fatherOccupationError && <p className='error-message-addmission'>{fatherOccupationError}</p> }
                                         </div>
                                     </div>
@@ -206,7 +253,19 @@ useEffect(() => {
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label htmlFor="age">Nationality</label>
-                                                <input onChange={changeNationality}type="text" className="form-control" id="age" placeholder="Enter Your Nationality" />
+                                                {/* <input onChange={changeNationality}type="text" className="form-control" id="age" placeholder="Enter Your Nationality" /> */}
+                                                <select
+                                                onChange={(e) => setNationality(e.target.value)}
+                                                className="form-control"
+                                                id="nationality"
+                                            >
+                                                <option value="">Select Nationality</option>
+                                                <option value="Nepalese">Nepalese</option>
+                                                <option value="Indian">Indian</option>
+                                                <option value="Chinese">Chinese</option>
+                                                <option value="American">American</option>
+                                                <option value="Other">Other</option>
+                                            </select>
                                                 {nationalityError && <p className='error-message-addmission'>{nationalityError}</p> }
                                         </div>
                                     </div>
@@ -220,7 +279,17 @@ useEffect(() => {
                                         <div className="form-group col-md-6">
                                             <label htmlFor="address">Grade Appling For</label>
                                            
-                                                <input onChange={changeGrade}type="number" className="form-control" id="address" placeholder="Enter the grade you're appling for" />   
+                                                {/* <input onChange={changeGrade}type="number" className="form-control" id="address" placeholder="Enter the grade you're appling for" />    */}
+                                                <select onChange={changeGrade} className="form-control" id="grade" placeholder="Enter the grade you're appling for">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                </select>
                                                 {gradeError && <p className='error-message-addmission'>{gradeError}</p> }                                 
                                         </div>
                                     </div>
