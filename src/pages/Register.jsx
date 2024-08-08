@@ -8,6 +8,7 @@ import '../index.css'
 import { toast } from 'react-toastify'
 import { createUserApi } from '../api/Api'
 import { useNavigate } from'react-router-dom'
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 const Register = () => {
   const [action,setAction]=useState("Sign Up");
@@ -170,6 +171,10 @@ return isValid;
                 passwordError && <p className='error-message-register'>{passwordError}</p>
               }
             </div>
+            {/* <div > */}
+    <PasswordStrengthBar style={{ width: '100%', maxWidth: '400px' ,marginLeft:'60px' }} password={password} />
+{/* </div> */}
+           
             <div className="input">
               <img src={password_icon} alt="" />
               <input  onChange={(e)=> setConfirmPassword(e.target.value)} type="password" placeholder='Confirm Password' />
