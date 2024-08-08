@@ -42,31 +42,60 @@ const Register = () => {
       setEmailError("Email is not valid");
       isValid = false;
   }
-     if(password.trim()===""){
-       setPasswordError("Password is required")
-       isValid=false
-     }else if (password.length < 6) {
-      setPasswordError("Password should be at least 6 characters");
-      isValid = false;
-  }
-  if (confirmpassword.trim() === "") {
-      setConfirmPasswordError("Confirm Password is required");
-      isValid = false;
-  } else if (confirmpassword !== password) {
-      setConfirmPasswordError("Passwords do not match");
-      isValid = false;
-  }
-     return isValid
-   }
+  //    if(password.trim()===""){
+  //      setPasswordError("Password is required")
+  //      isValid=false
+  //    }else if (password.length < 6) {
+  //     setPasswordError("Password should be at least 6 characters");
+  //     isValid = false;
+  // }
+  // if (confirmpassword.trim() === "") {
+  //     setConfirmPasswordError("Confirm Password is required");
+  //     isValid = false;
+  // } else if (confirmpassword !== password) {
+  //     setConfirmPasswordError("Passwords do not match");
+  //     isValid = false;
+  // }
+  //    return isValid
+  //  }
+
+  if (password.trim() === "") {
+    setPasswordError("Password is required");
+    isValid = false;
+} else if (password.length < 8 || password.length > 16) {
+    setPasswordError("Password must be between 8 and 16 characters");
+    isValid = false;
+} else if (!/[a-z]/.test(password)) {
+    setPasswordError("Password must include at least one lowercase letter");
+    isValid = false;
+} else if (!/[A-Z]/.test(password)) {
+    setPasswordError("Password must include at least one uppercase letter");
+    isValid = false;
+} else if (!/[0-9]/.test(password)) {
+    setPasswordError("Password must include at least one number");
+    isValid = false;
+} else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+    setPasswordError("Password must include at least one special character");
+    isValid = false;
+} else if (password === fullName) {
+    setPasswordError("Password cannot be the same as Full Name");
+    isValid = false;
+}
+ // Validate Confirm Password
+ if (confirmpassword.trim() === "") {
+  setConfirmPasswordError("Confirm Password is required");
+  isValid = false;
+} else if (confirmpassword !== password) {
+  setConfirmPasswordError("Passwords do not match");
+  isValid = false;
+}
+
+return isValid;
+};
 
   const changeFullName = (e) => {
     setFullName(e.target.value)
   }
-
-  // const changeLastname = (e) => {
-  //   setLastName(e.target.value)
-  // }
-
   const changeEmail = (e) => {
     setEmail(e.target.value)
   }
