@@ -53,6 +53,10 @@ const Login =()=>{
      loginUserApi(data).then((res)=>{
        if(res.data.success==false){
          toast.error(res.data.message)
+         if (res.data.passwordExpired) {
+          navigate('/changepassword'); // Navigate to the change password page
+          return; // Ensure no further processing is done
+      }
        }else{
          toast.success(res.data.message)
          // set token and user data in local storage

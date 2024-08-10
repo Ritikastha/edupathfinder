@@ -93,11 +93,11 @@ const Navbar = () => {
                                               <i className="fas fa-user-circle text-primary me-2"></i>Profile
                                             </Link>
                                         </li>
-                                        {/* <li>
-                                            <Link className="dropdown-item" to="/changepp">
-                                                Change Password
+                                        <li>
+                                            <Link className="dropdown-item" to="/changepassword">
+                                            <i className="fas fa-update-password text-primary me-2"></i> Change Password
                                             </Link>
-                                        </li> */}
+                                        </li>
                                          <li><hr className="dropdown-divider" /></li>
                                         <li>
                                             <button onClick={handleLogout} className="dropdown-item">

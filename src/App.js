@@ -16,6 +16,7 @@ import FeaturedDashboard from './pages/admin/Featureddashboard';
 import EventDashboard from './pages/admin/Eventdashboard';
 import Events from './pages/event';
 import ScholarDashboard from './pages/admin/Scholardashboard';
+import Auditdashboard from './pages/admin/Auditdashboard';
 import Scholarship from './pages/scholarship';
 import Detail from './pages/detail';
 import Rateandreview from './pages/rateandreview';
@@ -27,6 +28,7 @@ import UserRoutes from './protected/UserRoutes';
 // import Navbar from './components/Navbar/Navbar';
 // import AdminLayout from './components/Layout/AdminLayout';
 import FeatureDetail from './pages/featuredetail';
+import ChangePassword from './pages/ChangePassword';
 
 function App() {
   return (
@@ -45,6 +47,7 @@ function App() {
             <Route path='/adminfea' element={<FeaturedDashboard />} />
             <Route path='/adminevent' element={<EventDashboard />} />
             <Route path='/adminscholar' element={<ScholarDashboard />} />
+            <Route path='/auditlog' element={<Auditdashboard/>}/>
          
         </Route>
      <Route element={<UserRoutes/>}>
@@ -63,8 +66,9 @@ function App() {
         <Route path='/featuredetail' element={<FeatureDetail></FeatureDetail>}/>
         <Route path='/rateandreview' element={<Rateandreview></Rateandreview>}/>
         <Route path='/editprofile' element={<EditProfile></EditProfile>}/>
-        
+        <Route path='/changepassword' element={<ChangePassword></ChangePassword>}/>
         <Route path='/addmission' element={<Addmission></Addmission>}/>
+
         </Route>
       </Routes>                                   
     </Router>

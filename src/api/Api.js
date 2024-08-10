@@ -17,8 +17,10 @@ const Api = axios.create({
 export const createUserApi=(data) =>Api.post('/api/user/create',data)
 export const getUserApi=(data) =>Api.get('/api/user/get',data)
 export const loginUserApi=(data) =>Api.post('/api/user/login',data)
+export const updateUserApi=(data) =>Api.post('/api/user/updatePassword',data)
 
-
+export const auditApi = (data) => axios.post('/api/audit/logs', data);
+export const getauditApi = () => axios.get('/api/audit/logs');
 export const createSchoolApi=(data) => Api.post('/api/school/create_school',data,config)
 export const getAllSchoolApi=()=> Api.get('/api/school/get_school')
 // export const getSinglePackageApi=(id) => Api.get(`/api/package/get_package/${id}`)
