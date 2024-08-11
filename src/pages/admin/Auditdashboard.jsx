@@ -9,21 +9,23 @@ const AuditLogs = () => {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
+ 
     const fetchLogs = async () => {
       try {
-        const response = await axios.get('/api/audit/logs');
-        setLogs(response.data);
-        setFilteredLogs(response.data);
+          const response = await axios.get('/api/audit/logs');
+          setLogs(response.data);
+          setFilteredLogs(response.data);
       } catch (err) {
-        setError(err);
+          setError(err);
       } finally {
-        setLoading(false);
+          setLoading(false);
       }
-    };
-
-    fetchLogs();
+  };
+  
+  useEffect(() => {
+      fetchLogs();
   }, []);
+  
 
   const handleSearch = (term) => {
     setSearchTerm(term);
