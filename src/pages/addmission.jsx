@@ -130,7 +130,7 @@ const Addmission = () => {
         if(!isValid){
           return 
         }
-        console.log(fatherName,motherName,fatherOccupation,motherOccupation,guardianPhone,nationality,previousSchool,grade);
+        //console.log(fatherName,motherName,fatherOccupation,motherOccupation,guardianPhone,nationality,previousSchool,grade);
     
         const formData = new FormData();
     formData.append('fatherName', fatherName);
@@ -154,7 +154,7 @@ const Addmission = () => {
             }
         } catch (error) {
             toast.error("Server error");
-            console.log(error);
+            //console.log(error);
         }
     };
  

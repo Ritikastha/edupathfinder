@@ -25,7 +25,12 @@ const EditProfile = () => {
 
     ]);
     const [name, setName] = useState([]); 
-    const {id} = useParams()
+    // const {id} = useParams()
+
+    const id = localStorage.getItem('userId');
+
+
+
     // const [editableFields, setEditableFields] = useState({});
 
     // const changeName = (e) => {
@@ -74,11 +79,11 @@ const EditProfile = () => {
     // }, []);
 
     useEffect(() => {
-        console.log('Fetching basic info for ID:', id);
+        //console.log('Fetching basic info for ID:', id);
         const fetchBasicInfo = async () => {
             try {
                 const res = await getSingleBasicinfoApi(id);
-                console.log('API Response:', res);
+                //console.log('API Response:', res);
                 if (res.data && res.data.Basicinfo) {
                     const basicinfo = res.data.Basicinfo;
                     setName(basicinfo.fullName);
@@ -106,20 +111,34 @@ const EditProfile = () => {
 
       const handleSubmit =(e)=>{
         e.preventDefault()
-        console.log(name,phone,age,level,gender,address,currentschool)
+        //console.log(name,phone,age,level,gender,address,currentschool)
     
-        // make a form data
-        const formData=new FormData();
-        formData.append('fullName',name)
-        formData.append('phone',phone)
-        formData.append('age',age)
-        formData.append('level',level)
-        formData.append('gender',gender)
-        formData.append('address',address)
-        formData.append('currentschool',currentschool)
+        // // make a form data
+        // const formData=new FormData();
+        // formData.append('fullName',name)
+        // formData.append('phone',phone)
+        // formData.append('age',age)
+        // formData.append('level',level)
+        // formData.append('gender',gender)
+        // formData.append('address',address)
+        // formData.append('currentschool',currentschool)
+        // formData.append('userId',id)
+
+        const data = {
+            fullName: name,
+            phone: phone,
+            age: age,
+            level: level,
+            gender: gender,
+            address: address,
+            currentschool: currentschool,
+            user: id
+        };
+
+        
     
         // making api call
-        updateBasicinfoApi(id,formData).then((res)=>{
+        updateBasicinfoApi(id,data).then((res)=>{
           if(res.data.success=true){
             toast.success(res.data.message)
             NavigationPreloadManager('/editprofile')

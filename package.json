@@ -21,7 +21,10 @@
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "sBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "deploy": "cross-env NODE_ENV=production serve -s build --listen 3000 --ssl-cert ./ssl/localhost.pem --ssl-key ./ssl/localhost-key.pem",
+    "eject": "react-scripts eject",
+    "secureStart": "set HTTPS=true&& set SSL_CRT_FILE=./ssl/localhost.pem&& set SSL_KEY_FILE=./ssl/localhost-key.pem&& react-scripts start"
   },
   "eslintConfig": {
     "extends": [

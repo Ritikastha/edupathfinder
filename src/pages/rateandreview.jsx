@@ -50,7 +50,7 @@ const handleRatingChange = (ratingValue) => {
       }
     } catch (error) {
       toast.error("Server error");
-      console.log("Error response from server:", error.response);
+      //console.log("Error response from server:", error.response);
     }
   };
 

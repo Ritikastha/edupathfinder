@@ -111,7 +111,7 @@ return isValid;
     if(!isValid){
       return 
     }
-    console.log(fullName, email, password,confirmpassword)
+    //console.log(fullName, email, password,confirmpassword)
 
     const data = {
         fullName : fullName,
@@ -126,11 +126,14 @@ return isValid;
           toast.error(res.data.message)
         } else {
           toast.success(res.data.message)
+          localStorage.setItem('UserIdHai', res.data.id );
+          localStorage.setItem('FullNameHai', fullName);
+
           navigate('/basicinfo',{state : {message : "Ritika"}})
         }
       }).catch(err => {
         toast.error("Server Error")
-        console.log(err.message)
+        //console.log(err.message)
       })
     }
 

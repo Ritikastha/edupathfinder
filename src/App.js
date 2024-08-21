@@ -25,15 +25,12 @@ import BasicInfo from './pages/Basicinfo';
 import Addmission from './pages/addmission';
 import AdminRoutes from './protected/AdminRoutes';
 import UserRoutes from './protected/UserRoutes';
-// import Navbar from './components/Navbar/Navbar';
-// import AdminLayout from './components/Layout/AdminLayout';
 import FeatureDetail from './pages/featuredetail';
 import ChangePassword from './pages/ChangePassword';
 
 function App() {
   return (
     <Router>
-    
       <ToastContainer/>
       <Routes>
       <Route path="/" element={<Dashboard></Dashboard>} />
@@ -42,24 +39,15 @@ function App() {
       <Route path='/basicinfo' element={<BasicInfo></BasicInfo>}/>
 
       <Route element={<AdminRoutes />}>
-      
-            <Route path='/adminsch' element={<AdminDashboard />} />
-            <Route path='/adminfea' element={<FeaturedDashboard />} />
-            <Route path='/adminevent' element={<EventDashboard />} />
-            <Route path='/adminscholar' element={<ScholarDashboard />} />
-            <Route path='/auditlog' element={<Auditdashboard/>}/>
-         
-        </Route>
-     <Route element={<UserRoutes/>}>
-     
-        
-        {/* <Route path='/register' element={<Register></Register>}/> */}
-        {/* <Route path='/login' element={<Login></Login>}/> */}
+        <Route path='/adminsch' element={<AdminDashboard />} />
+        <Route path='/adminfea' element={<FeaturedDashboard />} />
+        <Route path='/adminevent' element={<EventDashboard />} />
+        <Route path='/adminscholar' element={<ScholarDashboard />} />
+        <Route path='/auditlog' element={<Auditdashboard/>}/>
+      </Route>
+
+      <Route element={<UserRoutes/>}>
         <Route path='/dash' element={<Dashboard></Dashboard>}/>
-        {/* <Route path='/adminsch' element={<AdminDashboard></AdminDashboard>}/> */}
-        {/* <Route path='/adminfea' element={<FeaturedDashboard></FeaturedDashboard>}/>
-        <Route path='/adminevent' element={<EventDashboard></EventDashboard>}/>
-        <Route path='/adminscholar' element={<ScholarDashboard></ScholarDashboard>}/> */}
         <Route path='/event' element={<Events></Events>}/>
         <Route path='/scholarship' element={<Scholarship></Scholarship>}/>
         <Route path='/detail' element={<Detail></Detail>}/>
@@ -68,12 +56,9 @@ function App() {
         <Route path='/editprofile' element={<EditProfile></EditProfile>}/>
         <Route path='/changepassword' element={<ChangePassword></ChangePassword>}/>
         <Route path='/addmission' element={<Addmission></Addmission>}/>
-
-        </Route>
+      </Route>
       </Routes>                                   
     </Router>
-
-
   );
 }
 

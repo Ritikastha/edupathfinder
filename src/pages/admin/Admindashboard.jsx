@@ -74,7 +74,7 @@ const handleAdd = (schoolData) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(school,location, level,fee,description,transportation,amenties,cafe,hostel, image);
+    //console.log(school,location, level,fee,description,transportation,amenties,cafe,hostel, image);
 
     const formData = new FormData();
     formData.append("school", school);
@@ -98,7 +98,7 @@ const handleAdd = (schoolData) => {
       }
     } catch (error) {
       toast.error("Server error");
-      console.log("Error response from server:", error.response);
+      //console.log("Error response from server:", error.response);
     }
 
   };
@@ -136,7 +136,7 @@ const handleAdd = (schoolData) => {
   // useEffect(()=>{
   //   //Api call
   //   getSinglePackageApi(id).then((res)=>{
-  //     console.log(res.data);
+  //     //console.log(res.data);
   //     setDestination(res.data.Package.destination);
   //     setPrice(res.data.Package.price);
   //     setCategory(res.data.Package.category);
